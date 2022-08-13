@@ -1,9 +1,14 @@
 <?php
 
 namespace App\Model;
-
+// не указано ни одного геттера
 class Task implements \JsonSerializable
 {
+    //добавить справочник статусов
+    public const IN_PROGRESS_STATUS = 'IN_PROGRESS';
+    public const COMPLETED_STATUS = 'COMPLETED';
+    public const FAILED_STATUS = 'FAILED';
+
     /**
      * @var array
      */
@@ -19,6 +24,7 @@ class Task implements \JsonSerializable
      */
     public function jsonSerialize(): array
     {
+        // по README здесь должно быть ['id','title]
         return $this->_data;
     }
 }
